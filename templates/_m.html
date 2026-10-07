@@ -1,0 +1,5 @@
+{% macro bars(items, unit='') %}{% set mx = (items|map(attribute=1)|max) or 1 %}{% for n,v in items %}<div class="bar"><span>{{n}}</span><i style="width:{{ (v/mx*100)|round }}%;min-width:3px"></i><span>{{ v }}{{unit}}</span></div>{% endfor %}{% endmacro %}
+{% macro line(vals, w=520, h=130) %}{% set lo = vals|min %}{% set hi = vals|max %}{% set rg = (hi-lo) or 1 %}
+<svg viewBox="0 0 {{w}} {{h}}" style="width:100%;max-width:{{w}}px"><polyline fill="none" stroke="#1f7a43" stroke-width="3" points="{% for v in vals %}{{ (loop.index0*(w-20)/(vals|length-1)+10)|round }},{{ (h-15-(v-lo)/rg*(h-30))|round }} {% endfor %}"/>
+{% for v in vals %}<circle cx="{{ (loop.index0*(w-20)/(vals|length-1)+10)|round }}" cy="{{ (h-15-(v-lo)/rg*(h-30))|round }}" r="4" fill="#4cb06a"/>{% endfor %}<text x="10" y="12" font-size="11" fill="#6b7a72">{{ hi|round }}</text><text x="10" y="{{h-2}}" font-size="11" fill="#6b7a72">{{ lo|round }}</text></svg>{% endmacro %}
+{% macro csrf() %}<input type="hidden" name="_csrf" value="{{ csrf_token }}">{% endmacro %}

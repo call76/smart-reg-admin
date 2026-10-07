@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIZA-AGRI — Grow Smarter. Sell Better. Plan Together.</title><meta name="description" content="Smart agriculture platform for Rwanda: crop advice, weather, fertilizer planning, marketplace and national food-security intelligence.">
+<link rel="stylesheet" href="/static/landing.css"></head><body class="lp">
+
+<header class="top"><div class="wrap"><a class="logo" href="/">KIZA<b>-AGRI</b></a>
+<nav><a class="h" href="#audiences">Who it's for</a><a class="h" href="#features">Features</a><a class="h" href="#how">How it works</a><a class="h" href="#trust">Why trust it</a><a class="h" href="#faq">FAQ</a>
+{% if user %}<a class="b sun sm" href="{{ homes[user.role] }}">Open my dashboard</a>{% else %}<a href="/login">Login</a><a class="b sun sm" href="/register">Get started</a>{% endif %}</nav></div></header>
+
+<section class="hero" style="padding:0"><div class="wrap"><div>
+<span class="pill">🇷🇼 Built for Rwanda's seasons A · B · C and 30 districts</span>
+<h1>Grow smarter.<br><span>Sell better.</span><br>Plan together.</h1>
+<p class="lead">KIZA-AGRI connects farmers, markets and government in one platform: know what to plant, when to act, how much fertilizer to use and where to sell for the best net price.</p>
+<div class="cta">{% if user %}<a class="b sun" href="{{ homes[user.role] }}">Open my dashboard →</a>{% else %}<a class="b sun" href="/register">Start for free →</a><a class="b ghost" href="/login">Login</a>{% endif %}<a class="b ghost" href="#features">Explore features</a></div>
+<div class="chips"><span>✔ Explainable advice</span><span>✔ Works on any phone browser</span><span>✔ Clear labels on every data source</span></div></div>
+<div style="position:relative"><div class="mock"><div class="hd"><span><span class="dot"></span>Today's actions</span><span style="color:#5d6f65;font-weight:600;font-size:13px">Musanze</span></div>
+<div class="m-row"><div class="ring"><i>94</i></div><div><b>Potato · recommended</b><small>Temperature, rainfall and soil pH all suit this crop</small></div></div>
+<div class="m-act">⚠️ Rain likely tomorrow (80%) — avoid spraying.</div><div class="m-act g">✅ Best net price: Kigali market after transport.</div><div class="m-act g">✅ 1 buyer offer waiting for your answer.</div></div>
+<div class="float" style="top:-22px;left:-10px">🌱 Crop score 94/100</div><div class="float" style="bottom:-20px;right:6px">💰 Net price shown after transport</div></div></div></section>
+
+<div class="stats"><div class="wrap"><div class="stat"><b>{{s.f}}</b><span>Registered farmers</span></div><div class="stat"><b>{{s.fa}}</b><span>Farms on the platform</span></div><div class="stat"><b>{{ s.ha|round(1) }}</b><span>Hectares cultivated</span></div><div class="stat"><b>{{s.l}}</b><span>Live marketplace listings</span></div></div></div>
+
+<section id="audiences"><div class="wrap"><div class="center rv"><span class="eyebrow">One platform · three audiences</span><h2 class="t">Everyone in the food chain wins</h2><p class="sub">From a smallholder's field to a national planning office — the same trusted data, shown the way each person needs it.</p></div>
+<div class="aud"><div class="card rv"><div class="ic">👩🏾‍🌾</div><h3>Farmers</h3><ul><li>Daily "what to do now" list</li><li>Crop suitability, profit and risks</li><li>Weather and spraying advice</li><li>Nkunganire fertilizer cost and savings</li><li>List harvest, receive offers</li></ul>{% if not user %}<a class="b green sm" href="/register">Join as a farmer</a>{% endif %}</div>
+<div class="card c2 rv"><div class="ic">🛒</div><h3>Buyers &amp; traders</h3><ul><li>Find produce by crop and district</li><li>See quantity, quality, price</li><li>Send offers directly to farmers</li><li>Track every offer in one place</li><li>Compare market price trends</li></ul>{% if not user %}<a class="b green sm" href="/register">Join as a buyer</a>{% endif %}</div>
+<div class="card c3 rv"><div class="ic">🏛️</div><h3>Government &amp; partners</h3><ul><li>District map of cultivated area</li><li>Imihigo targets versus planted hectares</li><li>Distress reports from farmers</li><li>LUC compliance and price-trend alerts</li><li>Auditable data and decisions</li></ul>{% if not user %}<a class="b green sm" href="/login">Officer login</a>{% endif %}</div></div></div></section>
+
+<section id="features" style="background:#fff"><div class="wrap"><div class="center rv"><span class="eyebrow">Features</span><h2 class="t">Everything a modern farm needs</h2><p class="sub">Practical tools built around real farming decisions, not dashboards for their own sake.</p></div>
+<div class="feat">
+<div class="f rv"><div class="ic">🌾</div><h4>Smart Crop Advisor</h4><p>Ranks crops for your farm with a score, the reasons, the risks and the data used.</p></div>
+<div class="f rv"><div class="ic">⛅</div><h4>Weather advice</h4><p>Turns the forecast into actions: when to spray, drain or irrigate.</p></div>
+<div class="f rv"><div class="ic">🧪</div><h4>Nkunganire fertilizer engine</h4><p>Quantity and cost at open-market versus subsidized price, with your savings.</p></div>
+<div class="f rv"><div class="ic">📈</div><h4>E-Soko price trends</h4><p>District prices with a 14-day trend and the best market after transport.</p></div>
+<div class="f rv"><div class="ic">🤝</div><h4>Direct marketplace</h4><p>List your harvest, receive offers, accept the best one.</p></div>
+<div class="f rv"><div class="ic">🏛️</div><h4>LUC guardrail</h4><p>Checks your crop against your sector's Land Use Consolidation priority.</p></div>
+<div class="f rv"><div class="ic">🗺️</div><h4>Imihigo command map</h4><p>Planted hectares against district targets on an interactive map.</p></div>
+<div class="f rv"><div class="ic">📢</div><h4>Distress registry</h4><p>Report gluts, price manipulation or spoilage straight to the government.</p></div></div></div></section>
+
+<section id="how" class="dark"><div class="wrap"><div class="center rv"><span class="eyebrow" style="color:var(--sun)">How it works</span><h2 class="t">From registration to a better price in four steps</h2></div>
+<div class="steps"><div class="step rv"><h4>Register your farm</h4><p>Add your district, size, soil and fields in minutes.</p></div><div class="step rv"><h4>Get clear advice</h4><p>See what to plant, what to do today and what could go wrong.</p></div><div class="step rv"><h4>Harvest &amp; list</h4><p>Record your harvest and list it for buyers in one tap.</p></div><div class="step rv"><h4>Sell &amp; plan</h4><p>Accept offers while government sees real supply and needs.</p></div></div></div></section>
+
+<section id="trust"><div class="wrap trust"><div class="rv"><span class="eyebrow">Why you can trust the advice</span><h2 class="t">Transparent by design — no black boxes</h2><p class="sub">Every recommendation shows its reasoning, so farmers and officers can check it instead of guessing.</p>
+<ul class="tl"><li><b>Explained scores.</b> Temperature, rainfall, soil pH, season and water are shown separately.</li><li><b>Approved fertilizer rates only.</b> An extension officer signs off each rate and its source.</li><li><b>Honest data labels.</b> Demo, live and stale data are always marked.</li><li><b>Forecasts with ranges.</b> Experimental predictions show confidence, never false certainty.</li></ul></div>
+<div class="why rv"><b>Why Potato scored 94/100</b><div style="margin-top:14px"><div class="r"><span>Temperature</span><b>100%</b></div><div class="bar"><i style="width:100%"></i></div><div class="r"><span>Rainfall</span><b>90%</b></div><div class="bar"><i style="width:90%"></i></div><div class="r"><span>Soil pH</span><b>100%</b></div><div class="bar"><i style="width:100%"></i></div><div class="r"><span>Season</span><b>100%</b></div><div class="bar"><i style="width:100%"></i></div></div><small style="color:#5d6f65">Illustrative example of the advisor's explanation panel.</small></div></div></section>
+
+<section id="faq" style="background:#fff"><div class="wrap"><div class="center rv"><span class="eyebrow">FAQ</span><h2 class="t">Questions, answered</h2></div><div class="faq rv">
+<details><summary>Who can use KIZA-AGRI?</summary><p>Farmers, buyers and traders can register themselves. Government officers and extension officers receive accounts from an administrator.</p></details>
+<details><summary>Does it need a smartphone app?</summary><p>No. It works in any modern phone or computer browser, with a simple mode for first-time users.</p></details>
+<details><summary>Where does the data come from?</summary><p>Administrators load official data (for example RAB, MINAGRI, NISR) and live weather. Every source is recorded and any demo data is clearly labelled.</p></details>
+<details><summary>Can I trust the fertilizer advice?</summary><p>Rates are only shown as approved after an extension officer confirms them with a source. Unapproved rates carry a visible warning.</p></details>
+<details><summary>Is my information safe?</summary><p>Accounts use hashed passwords, role-based access and protected forms, and important actions are written to an audit log.</p></details></div></div></section>
+
+<div class="band"><h2>Ready to grow smarter?</h2><p>Join farmers, buyers and planners already using one shared source of agricultural intelligence.</p>{% if user %}<a class="b sun" href="{{ homes[user.role] }}">Open my dashboard →</a>{% else %}<a class="b sun" href="/register">Create your free account →</a>{% endif %}</div>
+<footer class="lf"><div class="wrap"><div class="cols"><div><div class="logo" style="font-size:20px">KIZA<b>-AGRI</b></div><p>Grow Smarter. Sell Better. Plan Together.<br>Smart agriculture intelligence for Rwanda.</p></div>
+<div><h5>Platform</h5><a href="/market">Marketplace</a><a href="/login">Farmer portal</a><a href="/login">Government portal</a></div><div><h5>Account</h5><a href="/login">Login</a><a href="/register">Register</a></div></div>
+<div class="cp">© 2026 KIZA-AGRI · Platform trial version</div></div></footer>
+<script>var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(e){o.observe(e)});</script>
+</body></html>

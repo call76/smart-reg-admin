@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block body %}<h1>{{ t('My Farms') }}</h1>
+<div class="grid g3">{% for f in farms %}<a class="card" style="text-decoration:none;color:inherit" href="/farms/{{f.id}}"><h3>{{f.name}}</h3><p>{{f.size_ha}} ha · {{f.district}} / {{f.sector}}{% if f.soil_type %} · {{f.soil_type}}{% endif %}</p><span class="tag">Open Farm Passport →</span></a>{% endfor %}</div>
+<div class="card"><h3>Register a new farm</h3><form method="post" class="row">{{ csrf_input() }}
+<div><label>Farm name</label><input name="name" required></div><div><label>Size (hectares)</label><input name="size_ha" type="number" step="0.01" min="0.01" required></div>
+<div><label>{{ t('District') }}</label><select name="district">{% for d in ds %}<option {{ 'selected' if d.name==user.district }}>{{d.name}}</option>{% endfor %}</select></div><div><label>{{ t('Sector') }}</label><input name="sector" value="{{ user.sector }}"></div>
+<div><label>Soil type</label><input name="soil_type" placeholder="Loam, clay..."></div><div><label>Soil pH (if known)</label><input name="soil_ph" type="number" step="0.1" min="3" max="9" placeholder="Empty = use district soil data"></div>
+<div><label><input type="checkbox" name="irrigation" style="width:auto"> Irrigation available</label></div><div><button>{{ t('Save') }}</button></div></form></div>{% endblock %}

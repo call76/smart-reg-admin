@@ -1,0 +1,3 @@
+Optional (for the Imihigo map to work with no internet):
+download Leaflet 1.9.x from https://leafletjs.com/download.html and copy leaflet.js and leaflet.css (and the images folder) into this folder.
+Without it, the map loads Leaflet from the internet; if that fails, district tiles are shown instead.
